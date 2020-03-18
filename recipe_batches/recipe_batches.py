@@ -13,31 +13,28 @@ ELSE compare minimum to the "next key"
 IF new-minimum < current minimum THEN set new minimum
 """
 
+
 def recipe_batches(recipe, ingredients):
-	batches = float("inf")
-	if len(ingredients) < len(recipe):
-		return 0
+    batches = float("inf")
+    if len(ingredients) < len(recipe):
+        return 0
 
-	for key in recipe:
-		recipeamt = recipe[key]
-		ingamt = ingredients[key]
-		
-		potential = ingamt // recipeamt
-		if potential <= 0:
-			return 0
-		if potential < batches:
-			batches = potential
-	print(batches)
-		
+    for key in recipe:
+        recipeamt = recipe[key]
+        ingamt = ingredients[key]
+
+        potential = ingamt // recipeamt
+        if potential <= 0:
+            return 0
+        if potential < batches:
+            batches = potential
+    return batches
 
 
-# one for loop with if
-# if you don't try catch it'll key error
-
-recipe_batches(
-	{"milk": 2, "sugar": 40, "butter": 20},
-	{"milk": 5, "sugar": 120, "butter": 500},
-)
+# recipe_batches(
+# 	{"milk": 2, "sugar": 40, "butter": 20},
+# 	{"milk": 5, "sugar": 120, "butter": 500},
+# )
 
 
 if __name__ == "__main__":
@@ -50,4 +47,3 @@ if __name__ == "__main__":
             batches=recipe_batches(recipe, ingredients), ingredients=ingredients
         )
     )
-
