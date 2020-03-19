@@ -20,14 +20,10 @@ def recipe_batches(recipe, ingredients):
         return 0
 
     for key in recipe:
-        recipeamt = recipe[key]
-        ingamt = ingredients[key]
-
-        potential = ingamt // recipeamt
-        if potential <= 0:
+        if ingredients[key] // recipe[key] <= 0:
             return 0
-        if potential < batches:
-            batches = potential
+        if ingredients[key] // recipe[key] < batches:
+            batches = ingredients[key] // recipe[key]
     return batches
 
 
